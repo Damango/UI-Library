@@ -1,0 +1,87 @@
+.ui-library-app-container{
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: 17% auto;
+    
+}
+
+.component-nav-bar-container{
+    position: relative;
+    box-sizing: border-box;
+    border-right: 1px solid rgba(0, 0, 0, 0.514);
+    background-color: white;
+}
+
+.component-nav-bar-logo{
+    width: 100%;
+    box-sizing: border-box;
+    padding: 20px;
+    text-align: center;
+    font-size: 30px;
+    font-weight: bold;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.438);
+}
+
+
+
+.component-nav-bar-content-wrapper{
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.main-view-container{
+    display: grid;
+    grid-template-columns: 65% auto;
+}
+
+.component-information-container{
+    padding: 30px;
+}
+
+.component-title-container{
+    font-size: 40px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.component-description-container{
+
+    margin-bottom: 20px;
+}
+
+.component-nav-buttons-container{
+    border-bottom: 1px solid black;
+}
+
+.component-nav-button{
+    display: inline-block;
+    padding: 8px 15px;
+    background-color: white;
+    box-sizing: border-box;
+}
+
+.component-data-wrapper{
+    margin-top: 30px;
+}
+.component-data-header{
+    font-size: 30px;
+    font-weight: bold;
+}
+.component-properties-container{
+    margin-top: 30px;
+}
+
+.component-property-container{
+    display: grid;
+    grid-template-columns: 20% auto;
+}
+
+.component-property-name{
+    display: inline-block;
+    border-radius: 3px;
+ padding: 5px 10px;
+ background-color: white;
+ box-shadow: 0px 0px 2px 1px black;
+}
+
