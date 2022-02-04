@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import ComponentLink from './components/ComponentLink/ComponentLink';
 import "./UILibrary.css"
 
@@ -53,13 +53,15 @@ const UILibrary = (props) => {
 
 
 
-
+    const mobileNavBarRef = useRef(null)
 
     const [componentView, setComponentView] = useState(componentLinks[0])
 
     const [fullCompView, setFullCompView] = useState('inline-block')
 
     const [componentInfoPage, setComponentInfoPage] = useState('properties')
+
+    const [mobileNavBar, setMobileNavBar] = useState(false)
 
 
 
@@ -86,14 +88,33 @@ const UILibrary = (props) => {
             </div>)}
         </div>)
        }
-   }
 
-
-   function renderSelectedButton(element){
-       if(componentInfoPage ===  element){
-        return({display: 'block'})
+       else if(componentInfoPage === 'preview'){
+           return(<div className='mobile-component-preview-container'>
+           {componentView.component}
+       </div>)
        }
    }
+
+
+   function handleMobileNavBar(){
+
+    let mobileNavBarElement = mobileNavBarRef.current
+
+    console.log(mobileNavBarElement)
+    
+    if(mobileNavBar){
+        mobileNavBarElement.style.left = '-100%'
+        setMobileNavBar(false)
+    }
+    else{
+       
+        mobileNavBarElement.style.left = '0%'
+        setMobileNavBar(true)
+        
+    }
+   }
+
 
 
 
@@ -102,6 +123,22 @@ const UILibrary = (props) => {
 
 
     return (<div className="ui-library-app-container">
+
+        <div className="mobile-nav-bar-button" onClick={() => {handleMobileNavBar();}}>
+            <i class="fas fa-bars"></i>
+        </div>
+
+        <div className='mobile-component-nav-bar-container' ref={mobileNavBarRef}>
+            <div className="component-nav-bar-logo">Phidom <i class="fas fa-columns" onClick={() => { handleFullView() }}></i></div>
+            <div className='component-nav-bar-content-wrapper'>
+                <div className='component-nav-bar-links-container'>
+                    {componentLinks.map((link) => <ComponentLink data={link} setComponentView={setComponentView} componentView={componentView} />)}
+                </div>
+            </div>
+
+
+        </div>
+       
 
         <div className='component-nav-bar-container'>
             <div className="component-nav-bar-logo">Phidom <i class="fas fa-columns" onClick={() => { handleFullView() }}></i></div>
@@ -127,6 +164,11 @@ const UILibrary = (props) => {
                     </div>
                     <div className='component-nav-button' onClick={() => {setComponentInfoPage('properties')}} style={(componentInfoPage === 'properties' ? selectedButtonStyle : {})}>
                         Properties
+                        <span className='nav-button-underline'></span>
+                    </div>
+
+                    <div className='component-nav-button mobile-preview-button' onClick={() => {setComponentInfoPage('preview')}} style={(componentInfoPage === 'preview' ? selectedButtonStyle : {})}>
+                        Preview
                         <span className='nav-button-underline'></span>
                     </div>
                 </div>
