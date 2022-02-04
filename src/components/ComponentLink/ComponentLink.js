@@ -26,6 +26,7 @@ const ComponentLink = (props) => {
 			style={renderSelectedContainer()}
 			onClick={() => {
 				props.setComponentView(props.data);
+				props.handleMobileNavBar();
 			}}
 		>
 			<div

@@ -162,6 +162,7 @@ const UILibrary = (props) => {
 								data={link}
 								setComponentView={setComponentView}
 								componentView={componentView}
+								handleMobileNavBar={handleMobileNavBar}
 							/>
 						))}
 					</div>
