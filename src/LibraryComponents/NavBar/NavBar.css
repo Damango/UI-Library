@@ -9,7 +9,7 @@
 	font-family: "Inter";
 	font-weight: bold;
 	display: grid;
-	grid-template-rows: 15% 75% 10%;
+	grid-template-rows: 70px 75% 10%;
 }
 
 .nav-bar-logo-container {

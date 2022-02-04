@@ -22,6 +22,7 @@
 	position: relative;
 
 	padding: 10px;
+	transition: 0.3s;
 }
 .nav-link-wrapper:hover {
 	cursor: pointer;
