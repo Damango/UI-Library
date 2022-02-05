@@ -144,27 +144,40 @@ const UILibrary = (props) => {
 
 	return (
 		<div className="ui-library-app-container">
-			<div
-				className="mobile-nav-bar-button"
-				onClick={() => {
-					handleMobileNavBar();
-				}}
-			>
-				<i class="fas fa-bars"></i>
+			<div className="mobile-top-bar-container">
+				<div
+					className="mobile-nav-bar-button"
+					onClick={() => {
+						handleMobileNavBar();
+					}}
+				>
+					<i class="fas fa-bars"></i>
+				</div>
+				<div className="github-button">
+					<i class="fab fa-github"></i>
+				</div>
 			</div>
 
 			<div className="mobile-component-nav-bar-container" ref={mobileNavBarRef}>
-				<div className="component-nav-bar-logo">Phidom </div>
-				<div className="component-nav-bar-content-wrapper">
-					<div className="component-nav-bar-links-container">
-						{componentLinks.map((link) => (
-							<ComponentLink
-								data={link}
-								setComponentView={setComponentView}
-								componentView={componentView}
-								handleMobileNavBar={handleMobileNavBar}
-							/>
-						))}
+				<div
+					className="mobile-nav-bar-overlay"
+					onClick={() => {
+						handleMobileNavBar();
+					}}
+				></div>
+				<div className="mobile-nav-bar-wrapper">
+					<div className="component-nav-bar-logo">Phidom </div>
+					<div className="component-nav-bar-content-wrapper">
+						<div className="component-nav-bar-links-container">
+							{componentLinks.map((link) => (
+								<ComponentLink
+									data={link}
+									setComponentView={setComponentView}
+									componentView={componentView}
+									handleMobileNavBar={handleMobileNavBar}
+								/>
+							))}
+						</div>
 					</div>
 				</div>
 			</div>

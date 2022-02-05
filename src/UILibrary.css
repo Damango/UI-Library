@@ -6,11 +6,38 @@
 	overflow-y: hidden;
 }
 
+.mobile-top-bar-container {
+	position: relative;
+	padding: absolute;
+
+	width: 100%;
+
+	display: none;
+}
+
+.github-button {
+	position: absolute;
+	right: 10px;
+	top: 50%;
+	transform: translateY(-50%);
+	background-color: #2f3640;
+	color: white;
+	height: 20px;
+	width: 20px;
+	padding: 5px;
+	border-radius: 3px;
+}
+
+.mobile-top-bar-container .fa-github {
+	font-size: 20px;
+}
+
 .mobile-nav-bar-button {
 	position: absolute;
 	background-color: rgb(17, 73, 255);
 	left: 10px;
-	top: 10px;
+	top: 50%;
+	transform: translateY(-50%);
 
 	width: 26px;
 	height: 26px;
@@ -27,6 +54,10 @@
 }
 
 .mobile-component-nav-bar-container {
+	display: none;
+}
+
+.mobile-nav-bar-overlay {
 	display: none;
 }
 
@@ -168,6 +199,19 @@
 }
 
 @media only screen and (max-width: 428px) {
+	.ui-library-app-container {
+		width: 100%;
+		height: 100%;
+		display: grid;
+		grid-template-rows: 55px auto;
+		grid-template-columns: 100%;
+	}
+	.mobile-top-bar-container {
+		display: inline-block;
+		background-color: white;
+		box-sizing: border-box;
+		border-bottom: 1px solid black;
+	}
 	.mobile-nav-bar-button {
 		display: inline-block;
 		z-index: 10;
@@ -175,13 +219,6 @@
 
 	.component-nav-bar-container {
 		display: none;
-	}
-
-	.ui-library-app-container {
-		width: 100%;
-		height: 100%;
-		display: grid;
-		grid-template-columns: 100%;
 	}
 
 	.main-view-container {
@@ -224,14 +261,34 @@
 	.mobile-component-nav-bar-container {
 		position: absolute;
 		left: -100%;
-		width: 90%;
+		width: 100%;
 		z-index: 5;
 		display: inline-block;
-		background-color: white;
+
 		height: 100%;
 		box-sizing: border-box;
-		border-right: 1px solid black;
+
+		z-index: 11;
 		transition: 0.3s;
+	}
+
+	.mobile-nav-bar-wrapper {
+		position: relative;
+		width: 80%;
+		height: 100%;
+		background-color: white;
+		border-top-right-radius: 5px;
+		border-bottom-left-radius: 5px;
+		box-sizing: border-box;
+		border-right: 1px solid black;
+	}
+
+	.mobile-nav-bar-overlay {
+		display: inline-block;
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		background-color: rgba(128, 128, 128, 0.226);
 	}
 
 	.component-nav-buttons-container {
