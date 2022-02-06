@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
 import "./DropDownMenu.css"
 
 const DropDownMenu = (props) => {
@@ -12,35 +12,31 @@ const DropDownMenu = (props) => {
 
 
     useEffect(() => {
-
         let options = [...dropDownOptions];
         options.splice(0, 1)
         setDropDownOptions(options)
-
-
-
     }, [])
 
 
-    function handleDropDown(){
-        if(dropDownState === true){
+    function handleDropDown() {
+        if (dropDownState === true) {
             setDropDownState(false)
         }
-        else{
+        else {
             setDropDownState(true)
         }
     }
 
-    function renderDropDown(){
-        if(dropDownState){
-            return({display: 'block'})
+    function renderDropDown() {
+        if (dropDownState) {
+            return ({ display: 'block' })
         }
-        else{
-            return({display: 'none'})
+        else {
+            return ({ display: 'none' })
         }
     }
 
-    function updateDropDownList(index){
+    function updateDropDownList(index) {
 
         let previousSelection = currentSelection;
 
@@ -62,13 +58,13 @@ const DropDownMenu = (props) => {
 
     return (<div className='phi-drop-down-menu-container'>
         <div className='drop-down-menu-wrapper' onClick={handleDropDown}>
-           {currentSelection} <i class="fas fa-angle-down"></i>
+            {currentSelection} <i class="fas fa-angle-down"></i>
         </div>
         <div className='drop-down-menu-options-container' style={renderDropDown()}>
-            {dropDownOptions.map((option, index) => 
-            <div className='drop-down-menu-option' onClick={() => {updateDropDownList(index)}}>
-                {option}
-            </div>)}
+            {dropDownOptions.map((option, index) =>
+                <div className='drop-down-menu-option' onClick={() => { updateDropDownList(index) }}>
+                    {option}
+                </div>)}
         </div>
     </div>);
 }

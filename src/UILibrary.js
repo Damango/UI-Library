@@ -29,7 +29,7 @@ const UILibrary = (props) => {
 			properties: [
 				{
 					name: "Options",
-					default: "[Option 1, Option 2, Option 3, Option 4",
+					default: "[Option 1, Option 2, Option 3, Option 4]",
 					type: "Array",
 					description: "An array of text options to select",
 				},
@@ -74,8 +74,21 @@ const UILibrary = (props) => {
 					default: "false",
 					type: "boolean",
 					description:
-						"A boolean to determine if the navigation bar is collapseable or not",
+						"A boolean to determine if the navigation bar is collapseable or not.",
 				},
+				{
+					name: "Logo",
+					default: "false",
+					type: "SVG or HTML Element",
+					description:
+						"A boolean for a footer to be placed on the bottom of the nav bar."
+				}, {
+					name: "Footer",
+					default: "false",
+					type: "boolean",
+					description:
+						"A boolean for a footer to be placed on the bottom of the nav bar."
+				}
 			],
 		},
 	];
@@ -109,7 +122,7 @@ const UILibrary = (props) => {
 							</div>
 							<div className="component-property-details-container">
 								<div className="property-type-default">
-									Default - {property.default} | {property.type}
+									Default - {property.default} | <span className="prop-type">{property.type}</span>
 								</div>
 								<div className="property-description">
 									{property.description}
@@ -232,7 +245,7 @@ const UILibrary = (props) => {
 							></span>
 						</div>
 						<div
-							className="component-nav-button"
+							className="component-nav-button properties-button"
 							onClick={() => {
 								setComponentInfoPage("properties");
 							}}
@@ -252,7 +265,7 @@ const UILibrary = (props) => {
 						</div>
 
 						<div
-							className="component-nav-button mobile-preview-button"
+							className="component-nav-button mobile-preview-button preview-button"
 							onClick={() => {
 								setComponentInfoPage("preview");
 							}}

@@ -110,7 +110,7 @@
 }
 
 .component-nav-buttons-container {
-	border-bottom: 1px solid black;
+	
 	display: grid;
 	grid-template-columns: auto auto;
 }
@@ -124,6 +124,7 @@
 	box-sizing: border-box;
 	border-left: 1px solid gray;
 	border-top: 1px solid gray;
+	border-bottom: 1px solid gray;
 	font-family: "Source Sans Pro";
 	font-weight: 600;
 	text-align: center;
@@ -142,6 +143,10 @@
 	height: 3px;
 	background-color: rgb(25, 104, 252) !important;
 	transition: 0.3s;
+}
+
+.properties-button{
+	border-right: 1px solid gray;
 }
 
 .mobile-preview-button {
@@ -164,8 +169,30 @@
 
 .component-property-container {
 	display: grid;
-	grid-template-columns: 20% auto;
+	grid-template-columns: 25% auto;
+	
 }
+
+.component-property-details-container{
+	margin-bottom: 35px;
+}
+
+.property-type-default{
+	font-style: italic;
+}
+
+.prop-type{
+	font-weight: bold;
+	font-family: 'Poppins';
+}
+
+.property-description{
+	position: relative;
+	top: 10px;
+	color:#2f3640;
+	font-weight: 600;
+}
+
 
 .component-property-name {
 	display: inline-block;
@@ -236,6 +263,15 @@
 		grid-template-rows: 6% 8% 5% auto;
 	}
 
+	.properties-button{
+		border-right: none;
+	}
+
+	.preview-button{
+		border-right: 1px solid gray;
+	}
+	
+
 	.mobile-preview-button {
 		display: inline-block;
 	}
@@ -293,5 +329,11 @@
 
 	.component-nav-buttons-container {
 		grid-template-columns: auto auto auto;
+	}
+
+	.component-property-container {
+		display: grid;
+		grid-template-columns: 40% auto;
+		
 	}
 }

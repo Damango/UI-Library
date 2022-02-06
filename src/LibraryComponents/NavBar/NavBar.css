@@ -41,6 +41,7 @@
 .nav-bar-links-container {
 	height: auto;
 	overflow-y: scroll;
+	padding-bottom: 30px;
 }
 
 .nav-bar-links-container::-webkit-scrollbar-thumb {
