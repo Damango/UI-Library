@@ -107,6 +107,8 @@
 
 .component-description-container {
 	margin-bottom: 20px;
+
+	min-height: 50px;
 }
 
 .component-nav-buttons-container {
@@ -155,8 +157,15 @@
 
 .component-data-wrapper {
 	position: relative;
+	box-sizing: border-box;
 
-	margin-top: 30px;
+	
+	
+	max-height: 100%;
+	
+	
+	top: 30px;
+	
 }
 .component-data-header {
 	font-size: 30px;
@@ -164,17 +173,32 @@
 	font-family: "Source Sans Pro";
 }
 .component-properties-container {
-	margin-top: 30px;
-}
+	position: relative;
+	height: 400px;
+	margin-top: 5px;
+
+	box-sizing: border-box;
+	padding: 5px;
+	
+
+	overflow-y: scroll !important;
+	}
 
 .component-property-container {
 	display: grid;
-	grid-template-columns: 25% auto;
+	grid-template-columns: 30% auto;
+	
+	
 	
 }
 
+
+
 .component-property-details-container{
 	margin-bottom: 35px;
+	display: inline-block;
+	
+	
 }
 
 .property-type-default{
@@ -188,9 +212,10 @@
 
 .property-description{
 	position: relative;
-	top: 10px;
+	
 	color:#2f3640;
 	font-weight: 600;
+	top: 10px;
 }
 
 
@@ -214,7 +239,7 @@
 	position: relative;
 	background-color: rgb(255, 255, 255);
 
-	height: 100%;
+	height: 90%;
 	box-sizing: border-box;
 }
 
@@ -257,10 +282,13 @@
 		position: relative;
 
 		height: 100%;
-		padding: 30px;
+		
+		padding: 15px;
+
 		box-sizing: border-box;
 		display: grid !important;
-		grid-template-rows: 6% 8% 5% auto;
+		grid-template-rows: 8% 75px 5% auto;
+		
 	}
 
 	.properties-button{
@@ -333,7 +361,7 @@
 
 	.component-property-container {
 		display: grid;
-		grid-template-columns: 40% auto;
+		grid-template-columns: 45% auto;
 		
 	}
 }

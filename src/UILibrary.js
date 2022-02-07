@@ -5,6 +5,7 @@ import "./UILibrary.css";
 // Imports for UI Components
 import DropDownMenu from "./LibraryComponents/DropDownMenu/DropDownMenu";
 import NavBar from "./LibraryComponents/NavBar/NavBar";
+import DateSelector from "./LibraryComponents/DateSelector/DateSelector";
 
 const UILibrary = (props) => {
 	let selectedUnderlineStyle = {
@@ -33,6 +34,22 @@ const UILibrary = (props) => {
 					type: "Array",
 					description: "An array of text options to select",
 				},
+				{
+					name: "Test",
+					default: "673.53",
+					type: "Inter / Variable",
+					description: "A place holder for a property to fill text.",
+				}, {
+					name: "Obilivion",
+					default: "doing the test",
+					type: "String / Variable",
+					description: "A place holder for a property to fill text.",
+				}, {
+					name: "THE BILLIONAIRE",
+					default: "doing the test",
+					type: "String / Variable",
+					description: "A place holder for a property to fill text.",
+				}
 			],
 		},
 		{
@@ -91,6 +108,38 @@ const UILibrary = (props) => {
 				}
 			],
 		},
+		{
+			title: "Date Selector",
+			component: (
+				<DateSelector />
+			),
+			usage: [],
+			properties: [
+				{
+					name: "Options",
+					default: "[Option 1, Option 2, Option 3, Option 4]",
+					type: "Array",
+					description: "An array of text options to select",
+				},
+				{
+					name: "Test",
+					default: "673.53",
+					type: "Inter / Variable",
+					description: "A place holder for a property to fill text.",
+				}, {
+					name: "Obilivion",
+					default: "doing the test",
+					type: "String / Variable",
+					description: "A place holder for a property to fill text.",
+				}, {
+					name: "THE BILLIONAIRE",
+					default: "doing the test",
+					type: "String / Variable",
+					description: "A place holder for a property to fill text.",
+				}
+			],
+		}
+
 	];
 
 	const mobileNavBarRef = useRef(null);
