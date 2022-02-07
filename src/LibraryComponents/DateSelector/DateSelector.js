@@ -10,9 +10,23 @@ const DateSelector = (props) => {
     }]
 
     const datePickerRef = useRef(null)
+    const inputRef = useRef(null)
 
     const [datePicker, setDatePicker] = useState(false)
 
+    let inputElement = inputRef.current;
+
+    function handleDateInput(event) {
+        let correctedInput = '';
+        let currentInput = event.target.value;
+        if (!isNaN(currentInput.charAt(currentInput.length - 1))) {
+            inputElement.value = currentInput
+        }
+        else {
+            correctedInput = currentInput.slice(0, -1);
+            inputElement.value = correctedInput
+        }
+    }
 
 
     function handleDatePickerAnimations() {
@@ -41,7 +55,8 @@ const DateSelector = (props) => {
 
     return (<div className='date-selector-container'>
         <div className='date-selector-wrapper'>
-            <input placeholder='mm/dd/yyyy' />
+
+            <input className="date-selector-input" onChange={handleDateInput} ref={inputRef} placeholder='MM/DD/YYYY' />
             <i class="fas fa-calendar-alt" onClick={handleDatePickerAnimations}></i>
         </div>
         <div className="date-picker-container" ref={datePickerRef}>
