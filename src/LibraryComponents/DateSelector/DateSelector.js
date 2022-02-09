@@ -1,91 +1,118 @@
-import React, { useState, useRef } from 'react';
-import "./DateSelector.css"
+import React, { useState, useRef } from "react";
+import "./DateSelector.css";
 const DateSelector = (props) => {
+	let dateData = [
+		{
+			monthName: "January",
+			year: 2022,
+			days: Array.from({ length: 31 }, (_, index) => index + 1),
+		},
+	];
 
+	const datePickerRef = useRef(null);
+	const inputRef = useRef(null);
 
-    let dateData = [{
-        monthName: "January",
-        year: 2022,
-        days: Array.from({ length: 31 }, (_, index) => index + 1),
-    }]
+	const [datePicker, setDatePicker] = useState(false);
 
-    const datePickerRef = useRef(null)
-    const inputRef = useRef(null)
+	function handleDateInput(event) {
+		let inputElement = inputRef.current;
+		let correctedInput = " ";
+		let currentInput = event.target.value;
+		console.log(inputElement);
+		let currentChar = currentInput.charAt(currentInput.length - 1);
+		if (!isNaN(currentChar) || currentChar === "/") {
+			inputElement.value = currentInput;
 
-    const [datePicker, setDatePicker] = useState(false)
+			// Checks if the length of the current is 3 so that a slash "/" can be put in order
+			// to have the correct date format.
+			if (currentInput.length === 3 && currentInput[2] !== "/") {
+				let numberShift = currentInput[2];
+				correctedInput = currentInput.slice(0, -1);
+				correctedInput += "/" + numberShift;
+				console.log(correctedInput);
+				//correctedInput = currentInput.replace(numberShift, "/" + numberShift);
+				inputElement.value = correctedInput;
+			}
 
-    let inputElement = inputRef.current;
+			if (currentInput.length === 6 && currentInput[5] !== "/") {
+				let numberShift = currentInput[5];
+				correctedInput = currentInput.slice(0, -1);
+				correctedInput += "/" + numberShift;
+				inputElement.value = correctedInput;
+			}
 
-    function handleDateInput(event) {
-        let correctedInput = '';
-        let currentInput = event.target.value;
-        if (!isNaN(currentInput.charAt(currentInput.length - 1))) {
-            inputElement.value = currentInput
-        }
-        else {
-            correctedInput = currentInput.slice(0, -1);
-            inputElement.value = correctedInput
-        }
-    }
+			if (currentInput.length === 11) {
+				inputElement.value = currentInput.slice(0, -1);
+				console.log("MAX VALLUE");
+			}
+		} else {
+			correctedInput = currentInput.slice(0, -1);
+			inputElement.value = correctedInput;
+		}
 
+		console.log(currentInput.length);
+	}
 
-    function handleDatePickerAnimations() {
-        if (datePicker) {
-            datePickerRef.current.style.opacity = 0;
-            datePickerRef.current.style.top = '225%'
+	function handleDatePickerAnimations() {
+		if (datePicker) {
+			datePickerRef.current.style.opacity = 0;
+			datePickerRef.current.style.top = "225%";
 
+			setTimeout(() => {
+				datePickerRef.current.style.display = "none";
+				setDatePicker(false);
+			}, 300);
+		} else {
+			setDatePicker(true);
+			datePickerRef.current.style.display = "inline-block";
+			setTimeout(() => {
+				datePickerRef.current.style.opacity = 1;
+				datePickerRef.current.style.top = "115%";
+			}, 0);
+		}
+	}
 
-            setTimeout(() => {
-                datePickerRef.current.style.display = 'none'
-                setDatePicker(false)
-            }, 300)
-        }
-        else {
-            setDatePicker(true)
-            datePickerRef.current.style.display = 'inline-block';
-            setTimeout(() => {
-                datePickerRef.current.style.opacity = 1
-                datePickerRef.current.style.top = '115%'
-            }, 0)
-        }
-    }
-
-
-
-
-    return (<div className='date-selector-container'>
-        <div className='date-selector-wrapper'>
-
-            <input className="date-selector-input" onChange={handleDateInput} ref={inputRef} placeholder='MM/DD/YYYY' />
-            <i class="fas fa-calendar-alt" onClick={handleDatePickerAnimations}></i>
-        </div>
-        <div className="date-picker-container" ref={datePickerRef}>
-            <div className="month-year-selector-container">
-                <span className="month-wrapper">
-                    {dateData[0].monthName} {dateData[0].year}
-                </span>
-                <span className="arrow-buttons-container">
-                    <i class="fas fa-chevron-circle-right" style={{ transform: 'rotate(180deg)' }}></i>
-                    <i class="fas fa-chevron-circle-right"></i>
-
-                </span>
-
-            </div>
-            <div className="calendar-container">
-
-                <div className="date-numbers-container">
-                    <span className="day-of-week">S</span>
-                    <span className="day-of-week">M</span>
-                    <span className="day-of-week">T</span>
-                    <span className="day-of-week">W</span>
-                    <span className="day-of-week">T</span>
-                    <span className="day-of-week">F</span>
-                    <span className="day-of-week">S</span>
-                    {dateData[0].days.map((date) => <span className="date-number">{date}</span>)}
-                </div>
-            </div>
-        </div>
-    </div >);
-}
+	return (
+		<div className="date-selector-container">
+			<div className="date-selector-wrapper">
+				<input
+					className="date-selector-input"
+					onChange={handleDateInput}
+					ref={inputRef}
+					placeholder="MM/DD/YYYY"
+				/>
+				<i class="fas fa-calendar-alt" onClick={handleDatePickerAnimations}></i>
+			</div>
+			<div className="date-picker-container" ref={datePickerRef}>
+				<div className="month-year-selector-container">
+					<span className="month-wrapper">
+						{dateData[0].monthName} {dateData[0].year}
+					</span>
+					<span className="arrow-buttons-container">
+						<i
+							class="fas fa-chevron-circle-right"
+							style={{ transform: "rotate(180deg)" }}
+						></i>
+						<i class="fas fa-chevron-circle-right"></i>
+					</span>
+				</div>
+				<div className="calendar-container">
+					<div className="date-numbers-container">
+						<span className="day-of-week">S</span>
+						<span className="day-of-week">M</span>
+						<span className="day-of-week">T</span>
+						<span className="day-of-week">W</span>
+						<span className="day-of-week">T</span>
+						<span className="day-of-week">F</span>
+						<span className="day-of-week">S</span>
+						{dateData[0].days.map((date) => (
+							<span className="date-number">{date}</span>
+						))}
+					</div>
+				</div>
+			</div>
+		</div>
+	);
+};
 
 export default DateSelector;
