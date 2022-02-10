@@ -4,15 +4,23 @@ const DateSelector = (props) => {
 	let dateData = [
 		{
 			monthName: "January",
+			monthNumber: 1,
 			year: 2022,
 			days: Array.from({ length: 31 }, (_, index) => index + 1),
 		},
 	];
 
+	const [selectedDate, setSelectedDate] = useState({
+		monthName: "January",
+		monthNumber: 1,
+		year: 2022,
+		day: 21,
+	});
+
 	const datePickerRef = useRef(null);
 	const inputRef = useRef(null);
 
-	const [datePicker, setDatePicker] = useState(false);
+	const [datePicker, setDatePicker] = useState();
 
 	function handleDateInput(event) {
 		let inputElement = inputRef.current;
@@ -29,8 +37,6 @@ const DateSelector = (props) => {
 				let numberShift = currentInput[2];
 				correctedInput = currentInput.slice(0, -1);
 				correctedInput += "/" + numberShift;
-				console.log(correctedInput);
-				//correctedInput = currentInput.replace(numberShift, "/" + numberShift);
 				inputElement.value = correctedInput;
 			}
 
@@ -43,7 +49,6 @@ const DateSelector = (props) => {
 
 			if (currentInput.length === 11) {
 				inputElement.value = currentInput.slice(0, -1);
-				console.log("MAX VALLUE");
 			}
 		} else {
 			correctedInput = currentInput.slice(0, -1);
@@ -69,6 +74,51 @@ const DateSelector = (props) => {
 				datePickerRef.current.style.opacity = 1;
 				datePickerRef.current.style.top = "115%";
 			}, 0);
+		}
+	}
+
+	function handleDateSelection(dateData, day) {
+		let inputElement = inputRef.current;
+		let newDate = {
+			monthName: dateData.monthName,
+			year: dateData.year,
+			day: day,
+		};
+
+		let correctedMonth = dateData.monthNumber;
+		let correctedDay = day;
+
+		if (dateData.monthNumber < 10) {
+			correctedMonth = dateData.monthNumber.toString();
+			correctedMonth = correctedMonth.replace(
+				correctedMonth,
+				"0" + correctedMonth
+			);
+			console.log(correctedMonth);
+		}
+
+		if (day < 10) {
+			correctedDay = day.toString();
+			correctedDay = correctedDay.replace(correctedDay, "0" + correctedDay);
+			console.log(correctedDay);
+		}
+
+		let dateString = correctedMonth + "/" + correctedDay + "/" + dateData.year;
+
+		setSelectedDate(newDate);
+
+		inputElement.value = dateString;
+
+		console.log(dateString);
+	}
+
+	function renderDateCircleStyle(day, month, year) {
+		if (
+			selectedDate.monthName === month &&
+			selectedDate.year === year &&
+			selectedDate.day === day
+		) {
+			return { backgroundColor: "#4834d4", color: "white" };
 		}
 	}
 
@@ -106,7 +156,15 @@ const DateSelector = (props) => {
 						<span className="day-of-week">F</span>
 						<span className="day-of-week">S</span>
 						{dateData[0].days.map((date) => (
-							<span className="date-number">{date}</span>
+							<span
+								className="date-number"
+								style={renderDateCircleStyle(date, "January", dateData[0].year)}
+								onClick={() => {
+									handleDateSelection(dateData[0], date);
+								}}
+							>
+								{date}
+							</span>
 						))}
 					</div>
 				</div>

@@ -2,6 +2,9 @@ import React, { useState, useRef } from "react";
 import ComponentLink from "./components/ComponentLink/ComponentLink";
 import "./UILibrary.css";
 
+// Import for the Links to the Components
+import ComponentData from "./componentData/componentData";
+
 // Imports for UI Components
 import DropDownMenu from "./LibraryComponents/DropDownMenu/DropDownMenu";
 import NavBar from "./LibraryComponents/NavBar/NavBar";
@@ -18,129 +21,7 @@ const UILibrary = (props) => {
 		backgroundColor: "white",
 	};
 
-	let componentLinks = [
-		{
-			title: "Drop Down Menu",
-			component: (
-				<DropDownMenu
-					dropDownOptions={["Twisted Fate", "Veigar", "Orianna", "Something"]}
-				/>
-			),
-			usage: [],
-			properties: [
-				{
-					name: "Options",
-					default: "[Option 1, Option 2, Option 3, Option 4]",
-					type: "Array",
-					description: "An array of text options to select",
-				},
-				{
-					name: "Test",
-					default: "673.53",
-					type: "Inter / Variable",
-					description: "A place holder for a property to fill text.",
-				}, {
-					name: "Obilivion",
-					default: "doing the test",
-					type: "String / Variable",
-					description: "A place holder for a property to fill text.",
-				}, {
-					name: "THE BILLIONAIRE",
-					default: "doing the test",
-					type: "String / Variable",
-					description: "A place holder for a property to fill text.",
-				}
-			],
-		},
-		{
-			title: "Navigation Bar",
-			component: (
-				<NavBar
-					navLinks={[
-						{
-							text: "Dashboard",
-							link: "https://google.com",
-							subLinks: [
-								{ text: "Computer Science", link: "https://google.com" },
-								{ text: "Calculus", link: "https://google.com" },
-								{ text: "Electrical Engineering", link: "https://google.com" },
-								{ text: "Computer Science", link: "https://google.com" },
-								{ text: "Calculus", link: "https://google.com" },
-								{ text: "Electrical Engineering", link: "https://google.com" },
-							],
-						},
-						{ text: "Customization", link: "https://google.com" },
-						{
-							text: "Templates",
-							link: "https://google.com",
-							subLinks: [
-								{ text: "Angular", link: "https://angular.io/" },
-								{ text: "React", link: "https://reactjs.org/" },
-								{ text: "Vue", link: "https://vuejs.org/" },
-							],
-						},
-						{ text: "Blog", link: "https://google.com" },
-						{ text: "Component API", link: "https://google.com" },
-					]}
-				/>
-			),
-			usage: [],
-			properties: [
-				{
-					name: "Collapseable",
-					default: "false",
-					type: "boolean",
-					description:
-						"A boolean to determine if the navigation bar is collapseable or not.",
-				},
-				{
-					name: "Logo",
-					default: "false",
-					type: "SVG or HTML Element",
-					description:
-						"A boolean for a footer to be placed on the bottom of the nav bar."
-				}, {
-					name: "Footer",
-					default: "false",
-					type: "boolean",
-					description:
-						"A boolean for a footer to be placed on the bottom of the nav bar."
-				}
-			],
-		},
-		{
-			title: "Date Selector",
-			component: (
-				<DateSelector />
-			),
-			usage: [],
-			properties: [
-				{
-					name: "Options",
-					default: "[Option 1, Option 2, Option 3, Option 4]",
-					type: "Array",
-					description: "An array of text options to select",
-				},
-				{
-					name: "Test",
-					default: "673.53",
-					type: "Inter / Variable",
-					description: "A place holder for a property to fill text.",
-				}, {
-					name: "Obilivion",
-					default: "doing the test",
-					type: "String / Variable",
-					description: "A place holder for a property to fill text.",
-				}, {
-					name: "THE BILLIONAIRE",
-					default: "doing the test",
-					type: "String / Variable",
-					description: "A place holder for a property to fill text.",
-				}
-			],
-		}
-
-	];
+	let componentLinks = ComponentData;
 
 	const mobileNavBarRef = useRef(null);
 
@@ -151,12 +32,6 @@ const UILibrary = (props) => {
 	const [componentInfoPage, setComponentInfoPage] = useState("properties");
 
 	const [mobileNavBar, setMobileNavBar] = useState(false);
-
-	function handleFullView() {
-		fullCompView === "none"
-			? setFullCompView("inline-block")
-			: setFullCompView("none");
-	}
 
 	function renderInfoPage() {
 		if (componentInfoPage === "usage") {
@@ -171,7 +46,8 @@ const UILibrary = (props) => {
 							</div>
 							<div className="component-property-details-container">
 								<div className="property-type-default">
-									Default - {property.default} | <span className="prop-type">{property.type}</span>
+									Default - {property.default} |{" "}
+									<span className="prop-type">{property.type}</span>
 								</div>
 								<div className="property-description">
 									{property.description}
@@ -245,15 +121,7 @@ const UILibrary = (props) => {
 			</div>
 
 			<div className="component-nav-bar-container">
-				<div className="component-nav-bar-logo">
-					Phidom{" "}
-					<i
-						class="fas fa-columns"
-						onClick={() => {
-							handleFullView();
-						}}
-					></i>
-				</div>
+				<div className="component-nav-bar-logo">Phidom </div>
 				<div className="component-nav-bar-content-wrapper">
 					<div className="component-nav-bar-links-container">
 						{componentLinks.map((link) => (

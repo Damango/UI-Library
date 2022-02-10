@@ -1,0 +1,23 @@
+.selector-bar-button {
+	display: inline-block;
+	position: relative;
+
+	top: 50%;
+	transform: translateY(-50%);
+	margin-right: 20px;
+	min-width: 50px;
+	text-align: center;
+	font-family: "Inter";
+
+	transition: all 0.3s;
+}
+
+.selector-bar-button:hover {
+	cursor: pointer;
+}
+
+.selector-bar-text {
+	position: relative;
+
+	font-weight: 600;
+}
