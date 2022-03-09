@@ -1,8 +1,21 @@
-import React, { useRef } from "react";
+import React, { useRef, useEffect } from "react";
 import "./SelectorBarButton.css";
 
 const SeletorBarButton = (props) => {
 	const buttonRef = useRef(null);
+	useEffect(() => {
+		setTimeout(() => {
+			if (props.index === 0) {
+				let firstButton = document.querySelector(".selector-bar-button");
+				console.log(firstButton.style.padding);
+				console.log("FIRST");
+				props.setHighlightBoxPos({
+					left: firstButton.offsetLeft - 8 + "px",
+					width: firstButton.getBoundingClientRect().width + "px",
+				});
+			}
+		}, 1);
+	}, []);
 
 	function renderSelectedStyle() {
 		console.log(props.selectedTab);
