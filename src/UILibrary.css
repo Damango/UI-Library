@@ -85,7 +85,7 @@
 
 .main-view-container {
 	display: grid;
-	grid-template-columns: 65% auto;
+	grid-template-columns: 65% auto !important;
 }
 
 .component-information-container {
@@ -112,7 +112,6 @@
 }
 
 .component-nav-buttons-container {
-	
 	display: grid;
 	grid-template-columns: auto auto;
 }
@@ -147,7 +146,7 @@
 	transition: 0.3s;
 }
 
-.properties-button{
+.properties-button {
 	border-right: 1px solid gray;
 }
 
@@ -159,19 +158,67 @@
 	position: relative;
 	box-sizing: border-box;
 
-	
-	
 	max-height: 100%;
-	
-	
+
 	top: 30px;
-	
 }
 .component-data-header {
 	font-size: 30px;
 	font-weight: bold;
 	font-family: "Source Sans Pro";
 }
+
+.component-usage-container {
+	position: relative;
+	width: 100%;
+	height: 160px;
+}
+
+.component-usage-info-container {
+	position: relative;
+
+	margin-bottom: 40px;
+	margin-top: 20px;
+}
+
+.components-usage-example-container {
+	position: relative;
+	width: 100%;
+	height: 100px;
+	margin-top: 20px;
+	box-sizing: border-box;
+}
+
+.components-usage-example-container pre {
+	position: absolute !important;
+	width: 100%;
+	font-size: 14px !important;
+	box-sizing: border-box;
+}
+
+.components-usage-description-container {
+	position: relative;
+	line-height: 25px;
+}
+
+.keyword-text {
+	box-shadow: 0px 0px 3px 1px gray;
+	background-color: white;
+	padding: 3px;
+	margin-right: 6px;
+	text-align: center !important;
+	border-radius: 3px;
+	font-size: 15px;
+	font-family: "Cabin";
+	font-weight: bold;
+}
+
+.plain-text {
+	margin-right: 2px;
+	text-align: center;
+	font-family: "Inter";
+}
+
 .component-properties-container {
 	position: relative;
 	height: 400px;
@@ -179,45 +226,36 @@
 
 	box-sizing: border-box;
 	padding: 5px;
-	
 
 	overflow-y: scroll !important;
-	}
+}
 
 .component-property-container {
 	display: grid;
 	grid-template-columns: 30% auto;
-	
-	
-	
 }
 
-
-
-.component-property-details-container{
+.component-property-details-container {
 	margin-bottom: 35px;
 	display: inline-block;
-	
-	
 }
 
-.property-type-default{
+.property-type-default {
 	font-style: italic;
 }
 
-.prop-type{
+.prop-type {
 	font-weight: bold;
-	font-family: 'Poppins';
+	font-family: "Poppins";
 }
 
-.property-description{
+.property-description {
 	position: relative;
-	
-	color:#2f3640;
+
+	color: #2f3640;
 	font-weight: 600;
 	top: 10px;
 }
-
 
 .component-property-name {
 	display: inline-block;
@@ -250,7 +288,7 @@
 	transform: translate(-50%, -50%);
 }
 
-@media only screen and (max-width: 428px) {
+@media only screen and (max-width: 1100px) {
 	.ui-library-app-container {
 		width: 100%;
 		height: 100%;
@@ -275,30 +313,28 @@
 
 	.main-view-container {
 		display: grid;
-		grid-template-columns: 100%;
+		grid-template-columns: 100% !important;
 	}
 
 	.component-information-container {
 		position: relative;
 
 		height: 100%;
-		
+
 		padding: 15px;
 
 		box-sizing: border-box;
 		display: grid !important;
 		grid-template-rows: 8% 75px 5% auto;
-		
 	}
 
-	.properties-button{
+	.properties-button {
 		border-right: none;
 	}
 
-	.preview-button{
+	.preview-button {
 		border-right: 1px solid gray;
 	}
-	
 
 	.mobile-preview-button {
 		display: inline-block;
@@ -362,6 +398,8 @@
 	.component-property-container {
 		display: grid;
 		grid-template-columns: 45% auto;
-		
 	}
+}
+
+@media only screen and (max-width: 600px) {
 }

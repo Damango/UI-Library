@@ -25,6 +25,8 @@ const UILibrary = (props) => {
 
 	const mobileNavBarRef = useRef(null);
 
+	const codeExampleRef = useRef(null);
+
 	const [componentView, setComponentView] = useState(componentLinks[0]);
 
 	const [fullCompView, setFullCompView] = useState("inline-block");
@@ -35,7 +37,22 @@ const UILibrary = (props) => {
 
 	function renderInfoPage() {
 		if (componentInfoPage === "usage") {
-			return <div className="component-usage-container"></div>;
+			return (
+				<div className="component-usage-container">
+					{componentView.usage.map((component, index) => (
+						<div className="component-usage-info-container">
+							<div className="components-usage-description-container">
+								{stringParser(component.description).map((word) => (
+									<span className={word.type + "-text"}>{word.text} </span>
+								))}
+							</div>
+							<div className="components-usage-example-container">
+								{component.example}
+							</div>
+						</div>
+					))}
+				</div>
+			);
 		} else if (componentInfoPage === "properties") {
 			return (
 				<div className="component-properties-container">
@@ -65,6 +82,27 @@ const UILibrary = (props) => {
 			);
 		}
 	}
+
+	function stringParser(string) {
+		let wordsContainer = [];
+		let i;
+		let wordsList = string.split(" ");
+
+		for (i = 0; i < wordsList.length; i++) {
+			if (wordsList[i].includes("--")) {
+				let keyword = wordsList[i];
+				keyword = keyword.slice(2, keyword.length);
+				console.log(keyword);
+				wordsContainer.push({ text: keyword, type: "keyword" });
+			} else {
+				wordsContainer.push({ text: wordsList[i], type: "plain" });
+			}
+		}
+
+		return wordsContainer;
+	}
+
+	function handleExampleCode() {}
 
 	function handleMobileNavBar() {
 		let mobileNavBarElement = mobileNavBarRef.current;

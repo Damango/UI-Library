@@ -3,8 +3,6 @@ import "./NavBar.css";
 import NavLink from "./NavLink/NavLink";
 
 const NavBar = (props) => {
-	const [linkDropDownState, setLinkDropDownState] = useState(false);
-
 	function renderFooter() {
 		if (props.footer) {
 			return (
