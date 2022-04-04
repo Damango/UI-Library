@@ -8,7 +8,7 @@
 	min-width: 50px;
 	text-align: center;
 	font-family: "Inter";
-
+	padding: 5px;
 	transition: all 0.3s;
 	user-select: none;
 }
@@ -19,6 +19,5 @@
 
 .selector-bar-text {
 	position: relative;
-
 	font-weight: 600;
 }

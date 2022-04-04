@@ -31,18 +31,19 @@
 	cursor: pointer;
 }
 
-.menu-pop-up-wrapper-closed {
+.menu-pop-up-wrapper {
 	position: absolute;
 	display: none;
 	box-shadow: 0px 0px 2px 1px black;
 	border-radius: 3px;
 	background-color: white;
-	width: 170px;
+	width: 200px;
 	opacity: 0;
 	bottom: 150%;
+	left: -100%;
+	transform: translateX(-50%);
 
 	transition: 0.3s;
-	overflow: hidden;
 }
 
 .svg-overlay {
@@ -51,21 +52,4 @@
 	height: 100%;
 	background-color: transparent;
 	z-index: 10;
-}
-
-.pop-up-selection {
-	position: relative;
-	font-family: "Inter";
-	background-color: transparent;
-	font-weight: 600;
-
-	padding: 10px;
-	transition-property: opacity;
-	transition-delay: 0.3s;
-	transition: 0.3s;
-}
-
-.pop-up-selection:hover {
-	cursor: pointer;
-	background-color: rgb(230, 230, 230);
 }

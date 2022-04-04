@@ -1,0 +1,94 @@
+.menu-pop-up-button-container {
+	position: relative;
+	font-family: "Inter";
+	background-color: transparent;
+	font-weight: 500;
+
+	padding: 10px;
+	transition-property: opacity;
+
+	transition: 0.3s;
+}
+
+.menu-pop-up-button-container:hover {
+	cursor: pointer;
+	background-color: rgb(230, 230, 230);
+}
+
+.menu-pop-up-button-container:hover .sub-menu-container {
+	display: block;
+}
+
+.menu-pop-up-button-text-wrapper {
+	position: relative;
+	display: flex;
+}
+.sub-menu-arrow {
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	width: 10px;
+	height: 10px;
+	right: 5px;
+}
+
+.sub-menu-arrow svg {
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+}
+
+.menu-pop-up-button-icon {
+	display: inline-block;
+	width: 20px;
+	position: relative;
+
+	margin-right: 10px;
+}
+
+.menu-pop-up-button-text {
+	display: inline-block;
+}
+
+.sub-menu-container {
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	left: 105%;
+	width: 150px;
+
+	background-color: white;
+	box-shadow: 0px 0px 2px 1px gray;
+	border-radius: 3px;
+	display: none;
+	opacity: 1;
+}
+
+.sub-menu-container:hover {
+	cursor: default !important;
+	display: inline-block !important;
+}
+
+.sub-menu-button {
+	padding: 10px;
+	background-color: white;
+	transition: all 0.3s;
+}
+
+.sub-menu-button:hover {
+	cursor: pointer;
+	background-color: rgb(219, 219, 219);
+}
+
+.sub-menu-bridge {
+	top: 0px;
+	position: absolute;
+	right: -20px;
+	height: 100%;
+
+	width: 30px;
+	background-color: transparent;
+}
+
+.sub-menu-bridge:hover {
+}
