@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import ComponentLink from "./components/ComponentLink/ComponentLink";
 import "./UILibrary.css";
 
@@ -42,11 +42,18 @@ const UILibrary = (props) => {
 					{componentView.usage.map((component, index) => (
 						<div className="component-usage-info-container">
 							<div className="components-usage-description-container">
-								{stringParser(component.description).map((word) => (
+								{stringParser(component.description).map((word, index) => (
 									<span className={word.type + "-text"}>{word.text} </span>
 								))}
 							</div>
-							<div className="components-usage-example-container">
+							<div
+								className={
+									"components-usage-example-container " +
+									"example-container-" +
+									index
+								}
+								ref={codeExampleRef}
+							>
 								{component.example}
 							</div>
 						</div>
@@ -83,6 +90,8 @@ const UILibrary = (props) => {
 		}
 	}
 
+	function handleExampleHeight() {}
+
 	function stringParser(string) {
 		let wordsContainer = [];
 		let i;
@@ -101,8 +110,6 @@ const UILibrary = (props) => {
 
 		return wordsContainer;
 	}
-
-	function handleExampleCode() {}
 
 	function handleMobileNavBar() {
 		let mobileNavBarElement = mobileNavBarRef.current;

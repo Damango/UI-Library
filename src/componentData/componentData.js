@@ -189,7 +189,7 @@ let componentData = [
 	{
 		title: "Menu Pop Up",
 		component: (
-			<MenuPopUp options={["Option 1", "Option 2", "Option 3", "Option 4"]}>
+			<MenuPopUp>
 				<MenuPopUpButton
 					icon={
 						<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
@@ -232,9 +232,13 @@ let componentData = [
 			{
 				example: (
 					<SyntaxHighlighter language="jsx" style={materialDark}>
-						{`const [state, setState] = useState('');
+						{`function exampleFunction(){
+	console.log('Button Clicked!')
+};
 
-<DropDownMenu setState={setState} dropDownOptions={["Twisted Fate", "Veigar", "Orianna", "Darius"]}/>`}
+<MenuPopUp >
+	<MenuPopUpButton text="Button Text" onClick={exampleFunction} icon={<svg></svg>} />
+</MenuPopUp>`}
 					</SyntaxHighlighter>
 				),
 				description:
@@ -249,32 +253,93 @@ let componentData = [
 				description:
 					"--setState is not needed if would like to see how it would fit in with your web design",
 			},
+
+			{
+				example: (
+					<SyntaxHighlighter language="jsx" style={materialDark}>
+						{`function exampleFunction(){
+	console.log('Button Clicked!')
+};
+
+<MenuPopUp >
+	<MenuPopUpButton text="Button Text" onClick={exampleFunction} icon={<svg></svg>} />
+</MenuPopUp>`}
+					</SyntaxHighlighter>
+				),
+				description:
+					"--dropDownOptions is an array of strings to represent the options inside of the drop down menu. --setState property is the state you want the drop down menu to change. ",
+			},
+			{
+				example: (
+					<SyntaxHighlighter language="jsx" style={materialDark}>
+						{`function exampleFunction(){
+	console.log('Button Clicked!')
+};
+
+<MenuPopUp >
+	<MenuPopUpButton text="Button Text" onClick={exampleFunction} icon={<svg></svg>} />
+</MenuPopUp>`}
+					</SyntaxHighlighter>
+				),
+				description:
+					"--dropDownOptions is an array of strings to represent the options inside of the drop down menu. --setState property is the state you want the drop down menu to change. ",
+			},
+			{
+				example: (
+					<SyntaxHighlighter language="jsx" style={materialDark}>
+						{`function exampleFunction(){
+	console.log('Button Clicked!')
+};
+
+<MenuPopUp >
+	<MenuPopUpButton text="Button Text" onClick={exampleFunction} icon={<svg></svg>} />
+</MenuPopUp>`}
+					</SyntaxHighlighter>
+				),
+				description:
+					"--dropDownOptions is an array of strings to represent the options inside of the drop down menu. --setState property is the state you want the drop down menu to change. ",
+			},
+			{
+				example: (
+					<SyntaxHighlighter language="jsx" style={materialDark}>
+						{`function exampleFunction(){
+	console.log('Button Clicked!')
+};
+
+<MenuPopUp >
+	<MenuPopUpButton text="Button Text" onClick={exampleFunction} icon={<svg></svg>} />
+</MenuPopUp>`}
+					</SyntaxHighlighter>
+				),
+				description:
+					"--dropDownOptions is an array of strings to represent the options inside of the drop down menu. --setState property is the state you want the drop down menu to change. ",
+			},
 		],
 		properties: [
 			{
-				name: "Options",
-				default: "[Option 1, Option 2, Option 3, Option 4]",
-				type: "Array",
-				description: "An array of options to select from",
+				name: "text",
+				default: '"Option[index]"',
+				type: "String",
+				description: "The text you want for you menu button",
 			},
 			{
-				name: "setState",
+				name: "onClick",
 				default: "undefined",
 				type: "Function",
+				description: "The function you want to run when the button is clicked",
+			},
+			{
+				name: "icon",
+				default: "undefined",
+				type: "Element / SVG",
+				description: "Icon for the button. Leave empty for NO icon.",
+			},
+			{
+				name: "subMenu",
+				default: "doing the test",
+				type: "Array of Objects",
 				description:
-					"A setState function to change the state to the selected option in your React Components.",
-			},
-			{
-				name: "Obilivion",
-				default: "doing the test",
-				type: "String / Variable",
-				description: "A place holder for a property to fill text.",
-			},
-			{
-				name: "THE BILLIONAIRE",
-				default: "doing the test",
-				type: "String / Variable",
-				description: "A place holder for a property to fill text.",
+					"An array to pass text and functions into another sub menu.",
 			},
 		],
 	},
