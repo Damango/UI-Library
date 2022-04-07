@@ -1,6 +1,168 @@
-body{}
-.App{
-  position: relative;
-  width: 100vw;
-  height: 100vh;
+body {
+}
+.App {
+	position: relative;
+	width: 100vw;
+	height: 100vh;
+}
+
+.home-page-container {
+	position: relative;
+	background-color: white;
+	width: 100%;
+	height: 100%;
+	display: grid;
+	grid-template-rows: 70% auto;
+	overflow: hidden;
+}
+
+.jumbotron-container {
+	position: relative;
+
+	width: 100%;
+	height: 100%;
+	background: linear-gradient(
+			180deg,
+			rgba(255, 255, 255, 0) 0%,
+			rgba(255, 255, 255, 0.801) 100%
+		),
+		url("../src/media/dotsbackground.png");
+	background-size: 20%;
+	background-position: center center;
+}
+
+.logo-container {
+	position: relative;
+	top: 30%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	width: 100%;
+	text-align: center;
+}
+
+.logo-container svg {
+	width: 300px;
+}
+
+.jumbotron-text-container {
+	position: relative;
+	top: 25%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	display: inline-block;
+	padding: 30px;
+	text-align: center;
+	background-color: white;
+	box-shadow: 0px 0px 5px 2px rgb(212, 212, 212);
+	border-radius: 5px;
+}
+
+.jumbotron-text-container span {
+	font-family: "Inter";
+	font-size: 30px;
+	font-weight: bold;
+	color: #2f3640;
+}
+
+.jumbotron-buttons-container {
+	position: absolute;
+	left: 50%;
+	transform: translateX(-50%);
+	top: 125%;
+
+	width: 100%;
+}
+
+.jumbotron-button {
+	background-color: white;
+	border-style: none;
+	padding: 10px 15px;
+	border: 1px solid rgb(78, 78, 78);
+	border-radius: 3px;
+	margin-right: 20px;
+	margin-left: 20px;
+	font-family: "Inter";
+	font-size: 20px;
+	transition: 0.3s;
+}
+
+.jumbotron-button:hover {
+	cursor: pointer;
+	background-color: #3168ff;
+	border-color: white;
+	color: white;
+}
+
+.home-page-footer {
+	position: relative;
+	width: 100%;
+
+	background-color: #15273a;
+}
+
+.footer-text-container {
+	position: relative;
+	font-family: "Inter";
+	font-size: 20px;
+	color: white;
+	display: inline-block;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+
+.footer-text-container a {
+	color: rgb(255, 255, 255);
+}
+
+@media only screen and (max-width: 900px) {
+	.logo-container svg {
+		width: 200px;
+	}
+
+	.jumbotron-text-container {
+		padding: 20px;
+		top: 30%;
+	}
+
+	.jumbotron-text-container span {
+		font-family: "Inter";
+		font-size: 23px;
+		font-weight: bold;
+		color: #2f3640;
+	}
+}
+
+@media only screen and (max-width: 600px) {
+	.logo-container svg {
+		width: 150px;
+	}
+
+	.jumbotron-text-container {
+		padding: 15px;
+	}
+
+	.jumbotron-text-container span {
+		font-family: "Inter";
+		font-size: 20px;
+		font-weight: bold;
+		color: #2f3640;
+	}
+
+	.jumbotron-buttons-container {
+		width: 150%;
+	}
+
+	.jumbotron-button {
+		background-color: white;
+		border-style: none;
+		padding: 10px 15px;
+		border: 1px solid rgb(78, 78, 78);
+		border-radius: 3px;
+		margin-right: 20px;
+		margin-left: 20px;
+		font-family: "Inter";
+		font-size: 16px;
+		transition: 0.3s;
+	}
 }
