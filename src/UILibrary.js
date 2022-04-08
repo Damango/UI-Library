@@ -27,13 +27,17 @@ const UILibrary = (props) => {
 
 	const codeExampleRef = useRef(null);
 
-	const [componentView, setComponentView] = useState(componentLinks[0]);
+	const [componentView, setComponentView] = useState(
+		componentLinks[0].components[0]
+	);
 
 	const [fullCompView, setFullCompView] = useState("inline-block");
 
 	const [componentInfoPage, setComponentInfoPage] = useState("properties");
 
 	const [mobileNavBar, setMobileNavBar] = useState(false);
+
+	console.log(componentView);
 
 	function renderInfoPage() {
 		if (componentInfoPage === "usage") {
@@ -89,8 +93,6 @@ const UILibrary = (props) => {
 			);
 		}
 	}
-
-	function handleExampleHeight() {}
 
 	function stringParser(string) {
 		let wordsContainer = [];
@@ -153,12 +155,17 @@ const UILibrary = (props) => {
 					<div className="component-nav-bar-content-wrapper">
 						<div className="component-nav-bar-links-container">
 							{componentLinks.map((link) => (
-								<ComponentLink
-									data={link}
-									setComponentView={setComponentView}
-									componentView={componentView}
-									handleMobileNavBar={handleMobileNavBar}
-								/>
+								<div className="component-category-container">
+									<div className="category-header">{link.category}</div>
+									{link.components.map((component) => (
+										<ComponentLink
+											data={component}
+											setComponentView={setComponentView}
+											componentView={componentView}
+											handleMobileNavBar={handleMobileNavBar}
+										/>
+									))}
+								</div>
 							))}
 						</div>
 					</div>
@@ -170,11 +177,17 @@ const UILibrary = (props) => {
 				<div className="component-nav-bar-content-wrapper">
 					<div className="component-nav-bar-links-container">
 						{componentLinks.map((link) => (
-							<ComponentLink
-								data={link}
-								setComponentView={setComponentView}
-								componentView={componentView}
-							/>
+							<div className="component-category-container">
+								<div className="category-header">{link.category}</div>
+								{link.components.map((component) => (
+									<ComponentLink
+										data={component}
+										setComponentView={setComponentView}
+										componentView={componentView}
+										handleMobileNavBar={handleMobileNavBar}
+									/>
+								))}
+							</div>
 						))}
 					</div>
 				</div>
@@ -186,8 +199,7 @@ const UILibrary = (props) => {
 				>
 					<div className="component-title-container">{componentView.title}</div>
 					<div className="component-description-container">
-						A small description for the user to describe the basic function of
-						the Component.
+						{componentView.description}
 					</div>
 
 					<div className="component-nav-buttons-container">

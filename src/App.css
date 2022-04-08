@@ -12,7 +12,7 @@ body {
 	width: 100%;
 	height: 100%;
 	display: grid;
-	grid-template-rows: 70% auto;
+	grid-template-rows: 80% auto;
 	overflow: hidden;
 }
 
@@ -45,10 +45,11 @@ body {
 }
 
 .jumbotron-text-container {
-	position: relative;
-	top: 25%;
+	position: absolute;
+	top: 130%;
 	left: 50%;
 	transform: translate(-50%, -50%);
+	width: 500px;
 	display: inline-block;
 	padding: 30px;
 	text-align: center;
@@ -69,7 +70,8 @@ body {
 	left: 50%;
 	transform: translateX(-50%);
 	top: 125%;
-
+	display: flex;
+	justify-content: space-between;
 	width: 100%;
 }
 
@@ -77,10 +79,11 @@ body {
 	background-color: white;
 	border-style: none;
 	padding: 10px 15px;
-	border: 1px solid rgb(78, 78, 78);
+	width: 48%;
+	color: #3168ff;
+	border: 2px solid #3168ff;
 	border-radius: 3px;
-	margin-right: 20px;
-	margin-left: 20px;
+
 	font-family: "Inter";
 	font-size: 20px;
 	transition: 0.3s;
@@ -116,13 +119,16 @@ body {
 }
 
 @media only screen and (max-width: 900px) {
+	.home-page-container {
+		grid-template-rows: 85% auto;
+	}
+
 	.logo-container svg {
 		width: 200px;
 	}
 
 	.jumbotron-text-container {
 		padding: 20px;
-		top: 30%;
 	}
 
 	.jumbotron-text-container span {
@@ -134,12 +140,16 @@ body {
 }
 
 @media only screen and (max-width: 600px) {
+	.home-page-container {
+		grid-template-rows: 90% auto;
+	}
 	.logo-container svg {
 		width: 150px;
 	}
 
 	.jumbotron-text-container {
 		padding: 15px;
+		width: 380px;
 	}
 
 	.jumbotron-text-container span {
@@ -149,20 +159,24 @@ body {
 		color: #2f3640;
 	}
 
-	.jumbotron-buttons-container {
-		width: 150%;
+	.jumbotron-button {
+		font-size: 16px;
+	}
+}
+
+@media only screen and (max-width: 450px) {
+	.jumbotron-text-container {
+		top: 140%;
+		padding: 15px;
+		width: 80%;
+	}
+
+	.jumbotron-text-container span {
+		font-size: 15px;
 	}
 
 	.jumbotron-button {
-		background-color: white;
-		border-style: none;
-		padding: 10px 15px;
-		border: 1px solid rgb(78, 78, 78);
-		border-radius: 3px;
-		margin-right: 20px;
-		margin-left: 20px;
-		font-family: "Inter";
-		font-size: 16px;
-		transition: 0.3s;
+		padding: 8px 10px;
+		font-size: 13px;
 	}
 }

@@ -118,7 +118,7 @@ const DateSelector = (props) => {
 			selectedDate.year === year &&
 			selectedDate.day === day
 		) {
-			return { backgroundColor: "#4834d4", color: "white" };
+			return { backgroundColor: "#076aff", color: "white" };
 		}
 	}
 

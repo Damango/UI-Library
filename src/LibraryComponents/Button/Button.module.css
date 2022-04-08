@@ -1,0 +1,25 @@
+.button {
+	display: inline-block;
+	border-style: none;
+	box-shadow: 0px 0px 2px 2px rgb(212, 212, 212);
+	border-radius: 3px;
+	font-size: 16px;
+	padding: 5px 15px;
+	font-family: "Inter";
+	transition: 0.3s;
+}
+
+.button:hover {
+	cursor: pointer;
+	box-shadow: 0px 0px 3px 2px rgb(129, 129, 129);
+}
+
+.danger {
+	background-color: #eb4d4b;
+	color: white;
+}
+
+.blue {
+	background-color: #076aff;
+	color: white;
+}

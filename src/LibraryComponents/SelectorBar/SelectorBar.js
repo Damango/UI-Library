@@ -4,15 +4,14 @@ import "./SelectorBar.css";
 import SelectorBarButton from "./SelectorBarButton/SelectorBarButton";
 
 const SelectorBar = (props) => {
+	let buttonList = props.options;
 	const [highlightBoxPos, setHighlightBoxPos] = useState({
 		left: 0 + "px",
 		width: 0 + "px",
 	});
 	const highlightRef = useRef(null);
 
-	const [selectedTab, setSelectedTab] = useState("science");
-
-	let buttonList = ["Science", "Math", "Engineering", "Bussiness", "Chemistry"];
+	const [selectedTab, setSelectedTab] = useState(buttonList[0]);
 
 	function handleSelection(elementRef, positionData) {
 		let boxRef = highlightRef.current;
@@ -32,7 +31,9 @@ const SelectorBar = (props) => {
 
 			{buttonList.map((button, index) => (
 				<SelectorBarButton
-					text={button}
+					text={button.text}
+					onClick={button.onClick}
+					button={button}
 					handleSelection={handleSelection}
 					selectedTab={selectedTab}
 					setSelectedTab={setSelectedTab}

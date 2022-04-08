@@ -5,6 +5,7 @@
 	width: 225px;
 	height: 55px;
 	background-color: white;
+	font-family: "Inter";
 }
 
 .date-selector-wrapper {
@@ -18,6 +19,15 @@
 	background-color: white;
 }
 
+.date-selector-wrapper i {
+	color: #076aff;
+	transition: 0.3s;
+}
+.date-selector-wrapper i:hover {
+	color: #023b91;
+	cursor: pointer;
+}
+
 .date-selector-input {
 	position: relative;
 	height: 100%;
@@ -25,6 +35,7 @@
 	border: none;
 	outline: none;
 	display: inline-block;
+	font-family: "Inter";
 }
 
 .date-selector-wrapper i {

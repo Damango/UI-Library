@@ -18,6 +18,10 @@
 	padding: 10px;
 }
 
+.drop-down-menu-wrapper:hover {
+	cursor: pointer;
+}
+
 .drop-down-menu-wrapper i {
 	position: absolute;
 	right: 10px;
@@ -43,4 +47,10 @@
 	width: 100%;
 	box-sizing: border-box;
 	padding: 10px;
+	transition: 0.3s;
+}
+
+.drop-down-menu-option:hover {
+	cursor: pointer;
+	background-color: lightgray;
 }

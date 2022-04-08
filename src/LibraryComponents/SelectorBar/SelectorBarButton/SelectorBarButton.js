@@ -7,8 +7,6 @@ const SeletorBarButton = (props) => {
 		setTimeout(() => {
 			if (props.index === 0) {
 				let firstButton = document.querySelector(".selector-bar-button");
-				console.log(firstButton.style.padding);
-				console.log("FIRST");
 				props.setHighlightBoxPos({
 					left: firstButton.offsetLeft - 8 + "px",
 					width: firstButton.getBoundingClientRect().width + "px",
@@ -18,8 +16,7 @@ const SeletorBarButton = (props) => {
 	}, []);
 
 	function renderSelectedStyle() {
-		console.log(props.selectedTab);
-		if (props.selectedTab.toLowerCase() === props.text.toLowerCase()) {
+		if (props.selectedTab.text.toLowerCase() === props.text.toLowerCase()) {
 			return { color: "#0956fc" };
 		} else {
 			return { color: "#2c3e50" };
@@ -36,7 +33,8 @@ const SeletorBarButton = (props) => {
 					buttonRef.current.getBoundingClientRect()
 				);
 
-				props.setSelectedTab(props.text);
+				props.setSelectedTab(props.button);
+				props.onClick();
 			}}
 			style={renderSelectedStyle()}
 		>

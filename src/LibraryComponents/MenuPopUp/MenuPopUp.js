@@ -8,8 +8,15 @@ const MenuPopUp = (props) => {
 
 	window.addEventListener("mouseup", function (e) {
 		if (popUpOpen) {
+			let subMenuButton = document.querySelector(".has-sub-menu");
+			console.log(e.target.parentNode.className);
+			//console.log("tasdasdasd");
 			if (e.target != svgRef.current) {
-				togglePopUp();
+				if (!e.target.className.includes("has-sub-menu")) {
+					if (!e.target.parentNode.className.includes("has-sub-menu")) {
+						togglePopUp();
+					}
+				}
 			}
 		}
 	});

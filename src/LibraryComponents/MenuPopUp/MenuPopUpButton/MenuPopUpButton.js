@@ -7,10 +7,10 @@ const MenuPopUpButton = (props) => {
 
 	if (props.subMenu) {
 		return (
-			<div className="menu-pop-up-button-container has-sub-menu">
+			<div className="menu-pop-up-button-container ">
 				<div className="sub-menu-bridge"></div>
 				<div
-					className="menu-pop-up-button-text-wrapper"
+					className="menu-pop-up-button-text-wrapper has-sub-menu"
 					onClick={() => {
 						props.onClick();
 					}}

@@ -8,6 +8,12 @@ const DropDownMenu = (props) => {
 		props.dropDownOptions[0]
 	);
 
+	window.addEventListener("mouseup", function (e) {
+		if (e.target.className != "drop-down-menu-option") {
+			setDropDownState(false);
+		}
+	});
+
 	useEffect(() => {
 		let options = [...dropDownOptions];
 		options.splice(0, 1);

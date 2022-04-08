@@ -83,6 +83,16 @@
 	box-sizing: border-box;
 }
 
+.component-category-container {
+	margin-bottom: 20px;
+}
+
+.category-header {
+	font-family: "Cairo";
+	color: #2f3640;
+	font-size: 22px;
+}
+
 .main-view-container {
 	display: grid;
 	grid-template-columns: 65% auto !important;
@@ -95,7 +105,7 @@
 	padding: 30px;
 	box-sizing: border-box;
 	display: grid !important;
-	grid-template-rows: 10% 50px 5% auto;
+	grid-template-rows: 8% 50px 5% auto;
 }
 
 .component-title-container {
@@ -166,12 +176,14 @@
 	font-size: 30px;
 	font-weight: bold;
 	font-family: "Source Sans Pro";
+	margin-bottom: 20px;
 }
 
 .component-usage-container {
 	position: relative;
 	width: 100%;
-	height: 500px;
+	height: 650px;
+
 	box-sizing: border-box;
 	padding: 5px;
 	overflow-y: scroll;
@@ -181,7 +193,6 @@
 	position: relative;
 
 	margin-bottom: 40px;
-	margin-top: 20px;
 }
 
 .components-usage-example-container {
@@ -284,6 +295,20 @@
 	background-color: rgb(255, 255, 255);
 	box-sizing: border-box;
 	border-left: 1px solid gray;
+}
+
+.component-preview-container button {
+	position: relative;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+}
+
+.mobile-component-preview-container button {
+	position: relative;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
 }
 
 .mobile-component-preview-container {
@@ -416,4 +441,22 @@
 }
 
 @media only screen and (max-width: 600px) {
+}
+
+@media only screen and (max-height: 950px) {
+	.component-usage-container {
+		height: 650px;
+	}
+}
+
+@media only screen and (max-height: 870px) {
+	.component-usage-container {
+		height: 560px;
+	}
+}
+
+@media only screen and (max-height: 800px) {
+	.component-usage-container {
+		height: 400px;
+	}
 }
